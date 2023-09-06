@@ -29,11 +29,11 @@ add_action('phpmailer_init', function ($phpmailer) {
         $phpmailer->From = get_option('gm_smtp_from');
         $phpmailer->FromName = get_option('gm_smtp_from_name');
         $phpmailer->Username = get_option('gm_smtp_username');
-        $phpmailer->Password = \GMSmtp\includes\salt\decrypte(get_option('gm_smtp_password'));
+        $phpmailer->Password = \GMSmtp\Includes\decrypte(get_option('gm_smtp_password'));
         $phpmailer->SMTPSecure = get_option('gm_smtp_secure');
     }
 });
 
-// add_action('wp_mail_failed', function ($error) {
-//     var_dump($error->get_error_message());
-// });
+add_action('wp_mail_failed', function ($error) {
+    var_dump($error->get_error_message());
+});

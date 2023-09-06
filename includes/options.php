@@ -1,6 +1,6 @@
 <?php
 
-namespace GMSmtp\includes\options;
+namespace GMSmtp\Includes;
 
 require_once(dirname(__FILE__) . '/salt.php');
 
@@ -23,7 +23,7 @@ function register_settings()
     register_setting('gm_contact_form_options_group', 'gm_smtp_from');
     register_setting('gm_contact_form_options_group', 'gm_smtp_from_name');
     register_setting('gm_contact_form_options_group', 'gm_smtp_username');
-    register_setting('gm_contact_form_options_group', 'gm_smtp_password', array('sanitize_callback' => 'GMSmtp\includes\salt\encrypt'));
+    register_setting('gm_contact_form_options_group', 'gm_smtp_password', array('sanitize_callback' => 'GMSmtp\Includes\encrypt'));
     register_setting('gm_contact_form_options_group', 'gm_smtp_secure');
 }
 
@@ -65,7 +65,7 @@ function options_page()
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="gm_smtp_password">SMTP Password</label></th>
-                    <td><input type="password" id="gm_smtp_password" name="gm_smtp_password" value="<?php echo \GMSmtp\includes\salt\decrypte(get_option('gm_smtp_password')); ?>" /></td>
+                    <td><input type="password" id="gm_smtp_password" name="gm_smtp_password" value="<?php echo \GMSmtp\Includes\decrypte(get_option('gm_smtp_password')); ?>" /></td>
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="gm_smtp_secure">SMTP Secure Type (ssl, tsl)</label></th>

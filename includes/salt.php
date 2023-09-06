@@ -1,6 +1,6 @@
 <?php
 
-namespace GMSmtp\includes\salt;
+namespace GMSmtp\Includes;
 
 
 function encrypt($string = "")
